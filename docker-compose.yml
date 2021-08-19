@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    crowdin_activity:
+        build: .
+        environment:
+            - "PROJ_NAME=${PROJ_NAME}"
+            - "OUTPUT=${OUTPUT}"
+        volumes:
+            - '$PWD/src/crowdin_activity:/usr/crowdin_activity'
+        command: "python -u main.py $PROJ_NAME $OUTPUT"
